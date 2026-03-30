@@ -1,0 +1,17 @@
+{
+  "name": "express-template",
+  "version": "1.0.0",
+  "description": "Plantilla de proyecto Express.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "packageManager": "pnpm@10.12.1"
+} 
