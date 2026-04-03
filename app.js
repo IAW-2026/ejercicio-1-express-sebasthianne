@@ -5,12 +5,20 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Ruta raíz
-app.get('/', (req, res) => {
-  res.send('Hola mundo!');
+// Dar acceso a ruta public con static
+app.use('/public', express.static('public'));
+
+//Ruta public
+app.get('/public', (req, res) => {
+  res.redirect('/public/page.html');
 });
 
-// Middleware básico para manejo de errores
+// Ruta raíz
+app.get('/', (req, res) => {
+  res.redirect('/public');
+});
+
+  // Middleware básico para manejo de errores
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: '¡Algo salió mal!' });
