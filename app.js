@@ -5,10 +5,18 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Ruta raíz
-app.get('/', (req, res) => {
-  res.send('Hola mundo!');
+
+//Recursos estáticos que usa la página
+app.use('/acerca', express.static('acerca'));
+app.use('/contacto', express.static('contacto'));
+app.use('/style.css', express.static('style.css'));
+
+
+//Manejador de rutas
+app.get('/{*path}/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
 });
+
 
 // Middleware básico para manejo de errores
 app.use((err, req, res, next) => {
