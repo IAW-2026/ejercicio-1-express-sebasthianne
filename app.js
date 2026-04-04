@@ -10,12 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/acerca', express.static('acerca'));
 app.use('/contacto', express.static('contacto'));
 app.use('/style.css', express.static('style.css'));
+app.use(express.static('mainpage'));
+app.use('/*splat', express.static('errorpage'));
 
-
-//Manejador de rutas
-app.get('/{*path}/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
 
 
 // Middleware básico para manejo de errores
