@@ -11,9 +11,12 @@ app.use('/acerca', express.static('acerca'));
 app.use('/contacto', express.static('contacto'));
 app.use('/style.css', express.static('style.css'));
 app.use(express.static('mainpage'));
-app.use('/*splat', express.static('errorpage'));
 
 
+// Retornar 404 para recursos inexistentes
+app.get('/*splat', (req, res) => {
+  res.status(404).json({ error: '¡Recurso no encontrado!' });
+});
 
 // Middleware básico para manejo de errores
 app.use((err, req, res, next) => {
