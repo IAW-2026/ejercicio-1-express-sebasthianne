@@ -7,14 +7,16 @@
     <title> Información de contacto </title>
 </head>
 <body>
-    <h1> Información de contacto </h1>
-    <p> Puedes contactarme a través de los siguientes medios: </p>
-    <ul>
-        <li> Correo electrónico: ███████████████████ </li>
-        <li> Teléfono: ███████████ </li>
-        <li> Dirección: █████ █████████ ████ ███████ ████ </li>
-        <li> Nota: ¿Creíste que iba a ser así de fácil? Obviamente no me voy a doxear para un ejercicio de programación. </li>
-    </ul>
+    <h1> Formulario de contacto </h1>
+    <form action="/contacto" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
     <h2> Volver a la página principal </h2>
     <a href="/"> Con este link puedes volver a la página principal </a>
 </body>
